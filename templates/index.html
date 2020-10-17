@@ -1,7 +1,53 @@
-{% extends 'base.html' %} {% block head %} {% endblock %} {% block body %}
-<h1>Movie</h1>
-<form method="POST" action="/movies">
-    Movie : <input type="text" name="genre">
-    <input type="submit">
-</form>
-{% endblock %}
+<html>
+    <head>
+        <title>Mood Movie Selection</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    </head>
+    
+    <body>
+        <h1>*** Mood Movie Selection ***</h1>
+        <p>In the mood to watch a movie but don't know which one to watch? <br /> 
+        Well lucky for you, that's a simple fix! <br />Simply answer the following <br/>
+        questions, and a recommended movie will be generated.</p>
+        
+        {% extends "base.html" %} 
+        {% block title%} {% endblock %} 
+        {% block body %}
+        <form action="#" method="post">
+            <p>Would you like Cheesy, Neutral, or Serious:</p>
+            <p><button name="mood" type="submit" value="Cheesy">Chessy</button>
+            <p><button name="mood" type="submit" value="Neutral">Neutral</button>
+            <p><button name="mood" type="submit" value="Serious">Serious</button>
+            
+            <p>Would you like a Female MC, Male MC, or Both:</p>
+            <p><button name="protagonist" type="submit" value="Female">Female</button>
+            <p><button name="protagonist" type="submit" value="Male">Male</button>
+            <p><button name="protagonist" type="submit" value="Both">Both</button>
+            
+            <p>What intensity would you like:</p>
+            <p><button name="intensity" type="submit" value="Light-hearted">Female</button>
+            <p><button name="intensity" type="submit" value="Moderate">Male</button>
+            <p><button name="intensity" type="submit" value="Intense">Both</button>
+            
+            <p>Which rating do you prefer:</p>
+            <p><button name="rating" type="submit" value="Rated-E">Rated E</button>
+            <p><button name="rating" type="submit" value="PG-13">PG-13</button>
+            <p><button name="rating" type="submit" value="Rated-R">Rated R</button>
+            
+            <p>What type of movie are you looking for:</p>
+            <p><button name="type" type="submit" value="Fantasy">Fantasy</button>
+            <p><button name="type" type="submit" value="Realistic">Realistic</button>
+            <p><button name="type" type="submit" value="True-Story">True Story</button>
+            
+            <p>Lastly, what time period would you like:</p>
+            <p><button name="period" type="submit" value="Historical">Historical</button>
+            <p><button name="period" type="submit" value="Mondern-Day">Mondern Day</button>
+            <p><button name="pperiod" type="submit" value="Furturistic">Futuristic</button>
+        </form>
+       {% endblock %}
+        
+    </body>
+
+
+
+</html>
