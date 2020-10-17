@@ -12,11 +12,11 @@ def index():
 def movies():
     genre = request.form['genre']
     if genre == 'Action':
-        genre = 18
-    r = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=4d00790bd9a1c4473522227ce0b3361b&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=" + str(genre));
+        genre = 16
+    r = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=4d00790bd9a1c4473522227ce0b3361b&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=" + str(genre)+",18");
     json_object = r.json()
-    temp_k = json_object['results'][10]["title"]
-    return temp_k
+    movieName = json_object['results'][10]["title"]
+    return movieName
     # return render_template('movies.html')
 
 if __name__ == "__main__":
