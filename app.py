@@ -12,8 +12,10 @@ def index():
 def movies():
     genre = request.form['genre']
     r = requests.get("https://api.themoviedb.org/3/movie/"+genre+"?api_key=96c605a3f3793f8017e51b718cef1263")
-    json_object = r.text
-    return json_object
+    json_object = r.json()
+    temp_k = json_object['genres'][0]["name"]
+    temp_n = json_object['original_title']
+    return temp_n + " " + temp_k
     # return render_template('movies.html')
 
 if __name__ == "__main__":
