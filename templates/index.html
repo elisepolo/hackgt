@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Mood Movie Selection</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
     
     <body>
@@ -14,35 +14,33 @@
         {% block title%} {% endblock %} 
         {% block body %}
         <form action="#" method="post">
-            <p>Would you like Cheesy, Neutral, or Serious:</p>
-            <p><button name="mood" type="submit" value="Cheesy">Chessy</button>
-            <p><button name="mood" type="submit" value="Neutral">Neutral</button>
-            <p><button name="mood" type="submit" value="Serious">Serious</button>
+            <h3>Required Questions</h3>
+            <p>Would you like Comedy, Drama, Action, Horror:</p>
+            <p><button name="mood" type="submit" value="Comdedy">Comdedy</button>
+            <button name="mood" type="submit" value="Drama">Drama</button>
+            <button name="mood" type="submit" value="Action">Action</button>
+            <button name="mood" type="submit" value="Horror">Horror</button>
             
-            <p>Would you like a Female MC, Male MC, or Both:</p>
-            <p><button name="protagonist" type="submit" value="Female">Female</button>
-            <p><button name="protagonist" type="submit" value="Male">Male</button>
-            <p><button name="protagonist" type="submit" value="Both">Both</button>
+            <p>Would you like Adult or Children related films:</p>
+            <p><button name="age_reference" type="submit" value="Adult">Adult</button>
+            <button name="age_reference" type="submit" value="Child">Child</button>
             
-            <p>What intensity would you like:</p>
-            <p><button name="intensity" type="submit" value="Light-hearted">Female</button>
-            <p><button name="intensity" type="submit" value="Moderate">Moderate</button>
-            <p><button name="intensity" type="submit" value="Intense">Intense</button>
+            <h3>Optional Questions</h3>
+            <p>Which genre comes close to the intensity you're looking for:</p>
+            <p><button name="intensity" type="submit" value="Animation">Animation</button>
+            <button name="intensity" type="submit" value="Family">Family</button>
+            <button name="intensity" type="submit" value="Thriller">Thriller</button>
             
-            <p>Which rating do you prefer:</p>
-            <p><button name="rating" type="submit" value="Rated-E">Rated E</button>
-            <p><button name="rating" type="submit" value="PG-13">PG-13</button>
-            <p><button name="rating" type="submit" value="Rated-R">Rated R</button>
+            <p>Which genre represents the time period you'd like:</p>
+            <p><button name="period" type="submit" value="History">History</button>
+            <button name="period" type="submit" value="Science Fiction">Science Fiction</button>
             
-            <p>What type of movie are you looking for:</p>
-            <p><button name="type" type="submit" value="Fantasy">Fantasy</button>
-            <p><button name="type" type="submit" value="Realistic">Realistic</button>
-            <p><button name="type" type="submit" value="True-Story">True Story</button>
+            <p>What type of movie represents the thruth level behind the movie:</p>
+            <p><button name="type" type="submit" value="History">History</button>
+            <button name="type" type="submit" value="Fantasy">Fantasy</button>
+   
             
-            <p>Lastly, what time period would you like:</p>
-            <p><button name="period" type="submit" value="Historical">Historical</button>
-            <p><button name="period" type="submit" value="Mondern-Day">Mondern Day</button>
-            <p><button name="pperiod" type="submit" value="Furturistic">Futuristic</button>
+            
         </form>
        {% endblock %}
         
