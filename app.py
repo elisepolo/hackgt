@@ -11,13 +11,13 @@ def index():
 @app.route('/movies', methods=["POST"])
 def movies():
     genre = request.form['genre']
-    r = requests.get("https://api.themoviedb.org/3/movie/"+genre+"?api_key=96c605a3f3793f8017e51b718cef1263")
+    if genre == 'Action':
+        genre = 18
+    r = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=4d00790bd9a1c4473522227ce0b3361b&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=" + str(genre));
     json_object = r.json()
-    temp_k = json_object['genres'][0]["name"]
-    temp_n = json_object['original_title']
-    return temp_n + " " + temp_k
+    temp_k = json_object['results'][10]["title"]
+    return temp_k
     # return render_template('movies.html')
 
 if __name__ == "__main__":
     app.run(debug = True)
-
