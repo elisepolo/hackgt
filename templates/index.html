@@ -1,43 +1,146 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Mood Movie Selection</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <style type="text/css">
+
+        body{
+            background-color: #202020ef;
+            border: 5px dashed rgba(238, 60, 60, 0.795);
+            height: 100%;
+            min-height: 98vh;
+        }
+
+        .title h1{
+            text-align: center;
+            margin-top: 50px;
+            font-family: Tahoma;
+            font-weight: 600;
+            font-style: italic;
+            text-transform: uppercase;
+            font-size: 50px;
+            color: white;
+        }
+
+        .body{
+            color: white;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 20px;
+            margin-left: 150px;
+            margin-right: 150px;
+        }
+
+        .header1{
+            color: white;
+            text-align: center;
+            font-family: Tahoma;
+            font-style: italic;
+            font-size: 23px;
+        }
+
+        .body1{
+            color: white;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
+        }
+
+        .button{
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 16px;
+        }
+        .body2{
+            color: white;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
+        }
+
+        .body3 h3{
+            color: white;
+            text-align: center;
+            font-family: Tahoma;
+            font-style: italic;
+            font-size: 26px;
+            margin-top: 75px;
+        }
+
+        .body3{
+            color: white;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 17px;
+        }
+
+        .body4{
+            color: white;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 17px;
+        }
+
+        .body5{
+            color: white;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 17px;
+        }
+
+        </style>
+
     </head>
-    
     <body>
-        <h1>*** Mood Movie Selection ***</h1>
-        <p>In the mood to watch a movie but don't know which one to watch? <br /> 
-        Well lucky for you, that's a simple fix! <br />Simply answer the following <br/>
-        questions, and a recommended movie will be generated.</p>
-        
+        <div class="title">
+            <h1>Mood Movie Machine</h1>
+        </div>
+
+        <div class="body">
+            <p>In the mood to watch a movie but don't know which one to watch? Well lucky for you, that's a simple fix! Simply answer the following questions and a recommended movie will be generated.</p>
+        </div>
+
         {% extends "base.html" %} 
         {% block title%} {% endblock %} 
         {% block body %}
+
         <form action="#" method="post">
-            <h3>Required Questions</h3>
-            <p>Would you like Comedy, Drama, Action, Horror:</p>
-            <p><button name="mood" type="submit" value="Comdedy">Comdedy</button>
-            <button name="mood" type="submit" value="Drama">Drama</button>
-            <button name="mood" type="submit" value="Action">Action</button>
-            <button name="mood" type="submit" value="Horror">Horror</button>
+            <div class="header1">
+                <h3>Required Questions</h3>
+            </div>
+
+            <div class="body1">
+                <p>Would you like a Comedy, Drama, Action, or Horror movie?</p>
+                <p><button class="button" name="mood" type="radio" value="Comedy">Comedy</button>
+                <button class="button" name="mood" type="radio" value="Drama">Drama</button>
+                <button class="button" name="mood" type="radio" value="Action">Action</button>
+                <button class="button" name="mood" type="radio" value="Horror">Horror</button>
+            </div>
             
-            <p>Would you like Adult or Children related films:</p>
-            <p><button name="age_reference" type="submit" value="Adult">Adult</button>
-            <button name="age_reference" type="submit" value="Child">Child</button>
+            <div class="body2">
+                <p>Would you like an Adult or Children related film?</p>
+                <p><button class="button" name="age_reference" type="radio" value="Adult">Adult</button>
+                <button class="button" name="age_reference" type="radio" value="Child">Child</button>
+            </div>
             
-            <h3>Optional Questions</h3>
-            <p>Which genre comes close to the intensity you're looking for:</p>
-            <p><button name="intensity" type="submit" value="Animation">Animation</button>
-            <button name="intensity" type="submit" value="Family">Family</button>
-            <button name="intensity" type="submit" value="Thriller">Thriller</button>
+            <div class="body3">
+                <h3>Optional Questions</h3>
+                <p>Which genre comes closest to the intensity you're looking for?</p>
+                <p><button class="button" name="intensity" type="radio" value="Animation">Animation</button>
+                <button class="button" name="intensity" type="radio" value="Family">Family</button>
+                <button class="button" name="intensity" type="radio" value="Thriller">Thriller</button>
+            </div>
             
-            <p>Which genre represents the time period you'd like:</p>
-            <p><button name="period" type="submit" value="History">History</button>
-            <button name="period" type="submit" value="Science Fiction">Science Fiction</button>
+            <div class="body4">
+                <p>Which genre represents the time period you'd like to watch?</p>
+                <p><button class="button" name="period" type="radio" value="History">History</button>
+                <button class="button" name="period" type="radio" value="Science Fiction">Science Fiction</button>
+            </div>
             
-            <p>What type of movie represents the thruth level behind the movie:</p>
-            <p><button name="type" type="submit" value="History">History</button>
-            <button name="type" type="submit" value="Fantasy">Fantasy</button>
+            <div class="body5">
+                <p>What type of movie represents the truth level you'd like to watch?</p>
+                <p><button class="button" name="type" type="radio" value="History">History</button>
+                <button class="button" name="type" type="radio" value="Fantasy">Fantasy</button>
+            </div>
    
             
             
@@ -45,7 +148,4 @@
        {% endblock %}
         
     </body>
-
-
-
 </html>
