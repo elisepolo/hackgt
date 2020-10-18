@@ -41,7 +41,8 @@ def movies():
     indexnum = random.randint(0,len(json_object['results']))
     movieName = json_object['results'][indexnum]["title"]
     movieDesc = json_object['results'][indexnum]["overview"]
-    return render_template('movies.html', pickedmovie=movieName, moviedesc=movieDesc)
+    movieImage = "https://image.tmdb.org/t/p/w500/"+json_object['results'][indexnum]["poster_path"]
+    return render_template('movies.html', pickedmovie=movieName, moviedesc=movieDesc,image=movieImage)
 
 if __name__ == "__main__":
     app.run(debug = True)

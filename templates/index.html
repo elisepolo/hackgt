@@ -1,151 +1,145 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Mood Movie Selection</title>
-        <style type="text/css">
+{% extends 'base.html' %} {% block head %} {% endblock %} {% block body %}
 
-        body{
-            background-color: #202020ef;
-            border: 5px dashed rgba(238, 60, 60, 0.795);
-            height: 100%;
-            min-height: 98vh;
-        }
+<head>
+    <title>Mood Movie Machine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<style type="text/css">
+    body {
+        background-color: #202020ef;
+        border: 5px dashed rgba(238, 60, 60, 0.795);
+        height: 100%;
+        min-height: 98vh;
+    }
+    
+    .title h1 {
+        text-align: center;
+        margin-top: 50px;
+        font-family: Tahoma;
+        font-weight: 600;
+        font-style: italic;
+        text-transform: uppercase;
+        font-size: 50px;
+        color: white;
+    }
+    
+    .body {
+        color: white;
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 20px;
+        margin-left: 100px;
+        margin-right: 100px;
+        padding-top: 0px;
+        padding-bottom: 15px;
+    }
+    
+    .header1 {
+        color: white;
+        text-align: center;
+        font-family: Tahoma;
+        font-style: italic;
+        font-size: 20px;
+    }
+    
+    .body1 {
+        color: white;
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 18px;
+        padding-bottom: 10px;
+    }
+    
+    .button {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 16px;
+    }
+    
+    .body2 {
+        color: white;
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 18px;
+    }
+    
+    .body3 h3 {
+        color: white;
+        text-align: center;
+        font-family: Tahoma;
+        font-style: italic;
+        font-size: 26px;
+        margin-top: 75px;
+    }
+    
+    .body3 {
+        color: white;
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 17px;
+        padding-bottom: 30px;
+    }
+    
+    .body4 {
+        color: white;
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 17px;
+    }
+    
+    .body5 {
+        color: white;
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 17px;
+    }
+    
+    .button {
+        text-align: center;
+        padding-bottom: 30px;
+    }
+</style>
 
-        .title h1{
-            text-align: center;
-            margin-top: 50px;
-            font-family: Tahoma;
-            font-weight: 600;
-            font-style: italic;
-            text-transform: uppercase;
-            font-size: 50px;
-            color: white;
-        }
+<div class="title">
+    <h1>Mood Movie Machine</h1>
+</div>
 
-        .body{
-            color: white;
-            text-align: center;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 20px;
-            margin-left: 150px;
-            margin-right: 150px;
-        }
+<div class="body">
+    <p>In the mood to watch a movie but don't know which one to watch? Well lucky for you, that's a simple fix! Simply answer the following questions and a recommended movie will be generated.</p>
+</div>
 
-        .header1{
-            color: white;
-            text-align: center;
-            font-family: Tahoma;
-            font-style: italic;
-            font-size: 23px;
-        }
+<form method="POST" action="/movies">
+    <div class="header1">
+        <h3>Required Questions</h3>
+    </div>
+    <div class="body1">
+        <p>
+            <input type="checkbox" name="Comedy" value="Comedy"> Comedy
+            <input type="checkbox" name="Action" value="Action"> Action
+            <input type="checkbox" name="Drama" value="Drama"> Drama
+        </p>
 
-        .body1{
-            color: white;
-            text-align: center;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 18px;
-        }
-
-        .button{
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 16px;
-        }
-        .body2{
-            color: white;
-            text-align: center;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 18px;
-        }
-
-        .body3 h3{
-            color: white;
-            text-align: center;
-            font-family: Tahoma;
-            font-style: italic;
-            font-size: 26px;
-            margin-top: 75px;
-        }
-
-        .body3{
-            color: white;
-            text-align: center;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 17px;
-        }
-
-        .body4{
-            color: white;
-            text-align: center;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 17px;
-        }
-
-        .body5{
-            color: white;
-            text-align: center;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 17px;
-        }
-
-        </style>
-
-    </head>
-    <body>
-        <div class="title">
-            <h1>Mood Movie Machine</h1>
-        </div>
-
-        <div class="body">
-            <p>In the mood to watch a movie but don't know which one to watch? Well lucky for you, that's a simple fix! Simply answer the following questions and a recommended movie will be generated.</p>
-        </div>
-
-        {% extends "base.html" %} 
-        {% block title%} {% endblock %} 
-        {% block body %}
-
-        <form action="#" method="post">
-            <div class="header1">
-                <h3>Required Questions</h3>
-            </div>
-
-            <div class="body1">
-                <p>Would you like a Comedy, Drama, Action, or Horror movie?</p>
-                <p><button class="button" name="mood" type="radio" value="Comedy">Comedy</button>
-                <button class="button" name="mood" type="radio" value="Drama">Drama</button>
-                <button class="button" name="mood" type="radio" value="Action">Action</button>
-                <button class="button" name="mood" type="radio" value="Horror">Horror</button>
-            </div>
-            
-            <div class="body2">
-                <p>Would you like an Adult or Children related film?</p>
-                <p><button class="button" name="age_reference" type="radio" value="Adult">Adult</button>
-                <button class="button" name="age_reference" type="radio" value="Child">Child</button>
-            </div>
-            
-            <div class="body3">
-                <h3>Optional Questions</h3>
-                <p>Which genre comes closest to the intensity you're looking for?</p>
-                <p><button class="button" name="intensity" type="radio" value="Animation">Animation</button>
-                <button class="button" name="intensity" type="radio" value="Family">Family</button>
-                <button class="button" name="intensity" type="radio" value="Thriller">Thriller</button>
-            </div>
-            
-            <div class="body4">
-                <p>Which genre represents the time period you'd like to watch?</p>
-                <p><button class="button" name="period" type="radio" value="History">History</button>
-                <button class="button" name="period" type="radio" value="Science Fiction">Science Fiction</button>
-            </div>
-            
-            <div class="body5">
-                <p>What type of movie represents the truth level you'd like to watch?</p>
-                <p><button class="button" name="type" type="radio" value="History">History</button>
-                <button class="button" name="type" type="radio" value="Fantasy">Fantasy</button>
-            </div>
-   
-            
-            
-        </form>
-       {% endblock %}
-        
-    </body>
-</html>
+        <p>
+            <input type="checkbox" name="Animation" value="Animation"> Animation
+            <input type="checkbox" name="Family" value="Family"> Family
+            <input type="checkbox" name="Thriller" value="Thriller"> Thriller
+        </p>
+        <p>
+            <input type="checkbox" name="History" value="History"> History
+            <input type="checkbox" name="Fantasy" value="Fantasy"> Fantasy
+            <input type="checkbox" name="Sci-Fi" value="Sci-Fi"> Sci-Fi
+        </p>
+    </div>
+    <div class="header1">
+        <h3>Are you looking for a family friendly movie?</h3>
+    </div>
+    <div class="body3">
+        <p>
+            <input type="radio" name="Rating" value="kid"> Yes
+            <input type="radio" name="Rating" value="adult"> No
+        </p>
+    </div>
+    <div class="button">
+        <input type="submit" name="genre" value="submit">
+    </div>
+</form>
+{% endblock %}
