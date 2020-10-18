@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block head %} {% endblock %} {% block body %}
+
+<head>
+    <title>Mood Movie Selection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<h1>*** Movie Mood Selection ***</h1>
+<p>In the mood to watch a movie but don't know which one to watch? <br/> Well, lucky for you, that's a simple fix! <br/> Simply check the boxes of the following attributes you want for your movie!</p>
+<form method="POST" action="/movies">
+    Movie :
+    <p>
+        What kind of movie are you looking for?
+    </p>
+    <p>
+        <input type="checkbox" name="Comedy" value="Comedy"> Comedy
+        <input type="checkbox" name="Action" value="Action"> Action
+        <input type="checkbox" name="Drama" value="Drama"> Drama
+    </p>
+    <p>
+        <input type="checkbox" name="Animation" value="Animation"> Animation
+        <input type="checkbox" name="Family" value="Family"> Family
+        <input type="checkbox" name="Thriller" value="Thriller"> Thriller
+    </p>
+    <p>
+        <input type="checkbox" name="History" value="History"> History
+        <input type="checkbox" name="Fantasy" value="Fantasy"> Fantasy
+        <input type="checkbox" name="Sci-Fi" value="Sci-Fi"> Sci-Fi
+    </p>
+    <p>
+        <p>
+            Are you looking for a family friendly movie?
+        </p>
+        <input type="radio" name="Rating" value="kid"> Yes
+        <input type="radio" name="Rating" value="adult"> No
+    </p>
+    <input type="submit" name="genre" value="submit">
+</form>
+{% endblock %}
