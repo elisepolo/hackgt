@@ -1,11 +1,94 @@
+<!DOCTYPE html>
 <html>
-
 <head>
     <title>Movie Picker</title>
+    <style type="text/css">
+
+        body{
+            background-color: #202020ef;
+            border: 5px dashed rgba(238, 60, 60, 0.795);
+            height: 100%;
+            min-height: 98vh;
+        }
+
+        .container{
+            width: 80%;
+            margin: auto;
+        }
+
+        .rec h1{
+            text-align: center;
+            margin-top: 100px;
+            font-family: Tahoma;
+            font-weight: 600;
+            font-style: italic;
+            text-transform: uppercase;
+            font-size: 40px;
+            color: white;
+        }
+
+        .desc{
+            color: white;
+            text-align: center;
+            font-weight: 300;
+            font-size: 20px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .name h2{
+            text-align: center;
+            font-family: Tahoma;
+            font-style: italic;
+            font-weight: 400;
+            margin-top: 95px;
+            color: white;
+            font-size: 30px;
+        }
+        
+        .center{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 40vw;
+            max-width: 400px;
+ 
+        }
+
+        .summary {
+            text-align: center;
+            color: white;
+            font-family:'Courier New', Courier, monospace; 
+            font-size: 19px;
+            padding-bottom: 0px;
+            border-bottom: 0px;
+            margin-bottom: 0px;
+        }
+
+
+    </style>
 </head>
-
 <body>
-    <h1> You should watch: {{ pickedmovie }}.</h1>
-</body>
+    <div class="container">
+        <div class="rec">
+            <h1>Recommendation:</h1>
+        </div>
 
+        <div class="desc">
+            <p>Based on your selection, you should watch...</p>
+        </div>
+
+        <div class="name">
+            <h2>INSERT MOVIE NAME</h2>
+        </div>
+
+        <img src="images/profile .jpg" alt="Movie Image Unavailable" class="center">
+        
+        <div class="summary">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque totam velit consequatur voluptas recusandae corporis minima hic quasi, ea autem odio sapiente, optio deleniti, quas iusto exercitationem ut saepe? Doloribus?</p>
+        </div>
+
+
+    </div><!-- ./container -->
+</body>
 </html>
+
